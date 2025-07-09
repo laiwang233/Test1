@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="page-layout">
+
+        <header class="page-layout__header">
+            <div class="card">1</div>
+            <div class="card">2</div>
+            <div class="card">3</div>
+        </header>
+
+        <main class="page-layout__content">
+            <div class="card card--full-height">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>姓名</th>
+                            <th>年龄</th>
+                            <th>编号</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data-table-body">
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="page-layout__stack">
+                <div class="card">5</div>
+                <div class="card">6</div>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal" id="edit-modal">
+        <div class="modal__dialog">
+            <header class="modal__header">
+                <h3 class="modal_title">编辑信息</h3>
+                <button class="modal__close" aria-label="关闭模态框">&times;</button>
+            </header>
+            <main></main>
+            <footer></footer>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

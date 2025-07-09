@@ -1,0 +1,191 @@
+﻿/*css变量定义*/
+:root {
+    --gap-main: 15px;
+    --radius-main: 6px;
+
+    --color-text: #212529;
+    --color-background: #f8f9fa;
+    --color-surface: #ffffff;
+    --color-border: #dee2e6;
+
+    --color-primary: #0d6efd;
+    --color-primary-hover: #0b5ed7;
+    --color-secondary: #6c757d;
+    --color-secondary-hover: #5c636a;
+
+    --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --shadow-main: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/*基础重置，确保所有浏览器中表现一致*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    font-family: var(--font-main);
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+/*页面主布局*/
+.page-layout{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: var(--gap-main);
+    gap: var(--gap-main);
+}
+
+    .page-layout__header{
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .page-layout__content{
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--gap-main);
+        flex-grow: 1;
+        min-height: 0;
+    }
+
+    .page-layout__stack{
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-main);
+    }
+
+
+/*复用组件*/
+
+/*Block: card*/
+.card{
+    border: 1px solid var(--color-border);
+    padding: var(--gap-main);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-main);
+    box-shadow: var(--shadow-main);
+    display: grid;
+    place-items: center;
+}
+
+    .card--full-height{
+        height: 100%;
+        padding: 0;
+        overflow: hidden;
+    }
+
+/*Block: data-table*/
+.data-table{
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+}
+
+    .data-table th, .data-table td{
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .data-table thead th{
+        background-color: var(--color-background);
+        font-weight: 600;
+    }
+
+    .data-table tbody tr:last-child td{
+        border-bottom: none;
+    }
+
+    .data-table tbody tr:hover{
+        background-color: #f1f3f5;
+    }
+
+/*Block: button*/
+.button{
+    padding: 8px 16px;
+    border-radius: var(--radius-main);
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+    .button--primary{
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+        color: #FFF;
+    }
+
+    .button--primary:hover{
+        background-color: var(--color-primary-hover);
+        border-color: var(--color-primary-hover);
+    }
+
+    .button--secondary{
+        background-color: var(--color-secondary);
+        border-color: var(--color-secondary);
+        color: #FFF;
+    }
+
+    .button--secondary:hover{
+        background-color: var(--color-secondary-hover);
+        border-color: var(--color-secondary-hover);
+    }
+
+/*Block: modal*/
+.modal{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    place-items: center;
+    z-index: 1000;
+}
+
+    .modal.is-visible{
+        display: flex;
+    }
+
+    .modal__dialog{
+        background-color: var(--color-surface);
+        border-radius: var(--radius-main);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        width: 90%;
+        max-width: 500px;
+    }
+
+    .modal__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        border-bottom: 1px solid var(--color-border);
+    }
+    .modal__title {
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    .modal__close {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0;
+        line-height: 1;
+    }
+    .modal__content {
+        padding: 1rem;
+    }
+    .modal__footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        padding: 1rem;
+        border-top: 1px solid var(--color-border);
+    }
