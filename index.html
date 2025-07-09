@@ -44,8 +44,26 @@
                 <h3 class="modal_title">编辑信息</h3>
                 <button class="modal__close" aria-label="关闭模态框">&times;</button>
             </header>
-            <main></main>
-            <footer></footer>
+            <main class="modal__content">
+                <form class="form" id="edit-form">
+                    <div class="form__group">
+                        <label for="name-input" class="form__label">姓名：</label>
+                        <input type="text" id="name-input" name="name" class="form__input" />
+                    </div>
+                    <div class="form__group">
+                        <label for="age-input" class="form__label">年龄：</label>
+                        <input type="number" id="age-input" name="age" class="form__input" />
+                    </div>
+                    <div class="form__group">
+                        <label for="number-input" class="form__label">编号：</label>
+                        <input type="text" id="number-input" name="number" class="form__input" readonly/>
+                    </div>
+                </form>
+            </main>
+            <footer class="modal__footer">
+                <button class="button button--secondary" type="button" data-action="close">取消</button>
+                <button class="button button--primary" type="submit" form="edit-form">保存</button>
+            </footer>
         </div>
     </div>
 

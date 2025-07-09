@@ -37,6 +37,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    const modal = document.querySelector('.modal');
+
+    /**
+     * 打开模态框
+     */
+    const openModal = () => modal.classList.add('is-visible');
+
+    /**
+     * 关闭模态框
+     */
+    const closeModal = () => modal.classList.remove('is-visible');
+
+    const fillFormWithUserData = (userId) =>{
+
+    }
+
     // --- 初始调用 ---
     renderTable(users);
 });
