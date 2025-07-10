@@ -50,8 +50,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModal = () => modal.classList.remove('is-visible');
 
     const fillFormWithUserData = (userId) =>{
+        const user = users.find(s => s.number === userId);
 
+        if(user){
+            const form = document.querySelector('#edit-form');
+            form.querySelector('#name-input').value = user.name;
+            form.querySelector('#age-input').value = user.age;
+            form.querySelector('#number-input').value = user.number;
+        }
+    };
+
+    if(tableBody){
+        tableBody.addEventListener('click', (event) =>{
+            if(event.target.matches('.edit-button')){
+                const userId = event.target.dataset.id;
+                fillFormWithUserData(userId);
+                openModal();
+            }
+        });
     }
+
+    const modalCloseButton = document.querySelector('.modal__close');
+    if(modalCloseButton) modalCloseButton.addEventListener('click', closeModal);
+
+    const modalCanCelButton = document.querySelector('[data-action="close"]');
+    if(modalCanCelButton) modalCanCelButton.addEventListener('click', closeModal);
+
+    if(modal){
+        modal.addEventListener('click', (event) =>{
+            event.preventDefault();
+            if(event.target === modal) closeModal();
+        });
+    }
+
+    document.addEventListener('keydown', (event) => {
+        if(event.key === 'Escape' && modal.classList.contains('is-visible')) closeModal();
+    })
 
     // --- 初始调用 ---
     renderTable(users);

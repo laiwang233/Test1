@@ -44,6 +44,8 @@ html, body{
     .page-layout__header{
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--gap-main);
+        height: 50%;
     }
 
     .page-layout__content{
@@ -55,8 +57,7 @@ html, body{
     }
 
     .page-layout__stack{
-        display: flex;
-        flex-direction: column;
+        display: grid;
         gap: var(--gap-main);
     }
 
@@ -143,7 +144,8 @@ html, body{
     position: fixed;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.4);
-    place-items: center;
+    align-items: center;
+    justify-content: center;
     z-index: 1000;
 }
 
